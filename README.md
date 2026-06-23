@@ -149,6 +149,7 @@ END
 ### Chat
 
 POST /chat
+![chats.png](chat.png)
 
 Request
 
@@ -172,6 +173,7 @@ Response
 ### History
 
 GET /history
+![history.png](history.png)
 
 Response
 
