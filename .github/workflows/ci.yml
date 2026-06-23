@@ -1,26 +1,19 @@
 name: LLM Assistant CI
 
 on:
-
 push:
-branches:
-- master
-- main
+  branches:
+  - master
 
 pull_request:
-branches:
-- master
-- main
+  branches:
+  - master
 
 jobs:
-
 test-and-build:
-
-```
 runs-on: ubuntu-latest
 
 steps:
-
   - name: Checkout Code
     uses: actions/checkout@v4
 
@@ -30,26 +23,19 @@ steps:
       python-version: "3.12"
 
   - name: Install Poetry
-    run: |
-      pip install poetry
+    run: pip install poetry
 
   - name: Install Dependencies
-    run: |
-      poetry install
+    run: poetry install
 
   - name: Test Router
-    run: |
-      poetry run python tests/test_router.py
+    run: poetry run python tests/test_router.py
 
   - name: Test Agent
-    run: |
-      poetry run python tests/test_agent.py
+    run: poetry run python tests/test_agent.py
 
   - name: Test Conditional Agent
-    run: |
-      poetry run python tests/test_conditional_agent.py
+    run: poetry run python tests/test_conditional_agent.py
 
   - name: Build Docker Image
-    run: |
-      docker build -t llm-assistant-api .
-```
+    run: docker build -t llm-assistant-api .
